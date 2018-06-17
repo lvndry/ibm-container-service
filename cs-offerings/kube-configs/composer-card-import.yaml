@@ -38,7 +38,7 @@ spec:
                   "eventURL": "grpc://blockchain-org1peer1:30111"
               }
           ],
-          "channel": "channel1",
+          "channel": "composerchannel",
           "mspID": "Org1MSP",
           "timeout": 300
         }

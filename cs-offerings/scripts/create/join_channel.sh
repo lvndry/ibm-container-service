@@ -24,13 +24,13 @@ if [ -z ${PEER_MSPID} ]; then
 fi
 PEER_MSPID=${PEER_MSPID:-Org1MSP}
 
-# Default to "channel1" if not defined
+# Default to "composerchannel" if not defined
 if [ -z "${CHANNEL_NAME}" ]; then
-	echo "CHANNEL_NAME not defined. I will use \"channel1\"."
+	echo "CHANNEL_NAME not defined. I will use \"composerchannel\"."
 	echo "I will wait 5 seconds before continuing."
 	sleep 5
 fi
-CHANNEL_NAME=${CHANNEL_NAME:-channel1}
+CHANNEL_NAME=${CHANNEL_NAME:-composerchannel}
 
 # Default to "admin for peer1" if not defined
 if [ -z "${MSP_CONFIGPATH}" ]; then
