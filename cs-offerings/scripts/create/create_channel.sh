@@ -40,10 +40,10 @@ while [ "$(kubectl get pod -a createchannel | grep createchannel | awk '{print $
     sleep 1;
 done
 
-if [ "$(kubectl get pod -a createchannel | grep createchannel | awk '{print $3}')" == "Completed" ]; then
+if [ "$(kubectl get pods createchannel | grep createchannel | awk '{print $3}')" == "Completed" ]; then
 	echo "Create Channel Completed Successfully"
 fi
 
-if [ "$(kubectl get pod -a createchannel | grep createchannel | awk '{print $3}')" != "Completed" ]; then
+if [ "$(kubectl get pods createchannel | grep createchannel | awk '{print $3}')" != "Completed" ]; then
 	echo "Create Channel Failed"
 fi

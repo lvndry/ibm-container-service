@@ -8,6 +8,9 @@ else
     echo "Please run the script from 'scripts' or 'scripts/create' folder"
 fi
 
+echo "clearing all old pods"
+./delete_all.sh
+
 echo ""
 echo "=> CREATE_ALL: Creating storage"
 create/create_storage.sh $@

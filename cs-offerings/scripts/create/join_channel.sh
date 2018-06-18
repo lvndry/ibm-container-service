@@ -51,7 +51,7 @@ echo "Creating joinchannel pod"
 echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/join_channel.yaml"
 kubectl create -f ${KUBECONFIG_FOLDER}/join_channel.yaml
 
-while [ "$(kubectl get pod -a joinchannel | grep joinchannel | awk '{print $3}')" != "Completed" ]; do
+while [ "$(kubectl get pods joinchannel | grep joinchannel | awk '{print $3}')" != "Completed" ]; do
     echo "Waiting for joinchannel container to be Completed"
     sleep 1;
 done
