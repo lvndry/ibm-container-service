@@ -21,7 +21,7 @@ spec:
     - name: K8S_PROFILE
       value: >
         {
-          "name": "fabric-network",
+          "name": "hlfv1",
           "x-type": "hlfv1",
           "version": "1.0.0",
           "peers": {
@@ -30,56 +30,56 @@ spec:
                 "eventUrl": "grpc://localhost:7053"
               }
             },
-            "certificateAuthorities": {
-              "ca.org1.example.com": {
-                "url": "http://localhost:7054",
-                "caName": "ca.org1.example.com"
-              }
-            },
-            "orderers": {
-              "orderer.example.com": {
-                "url": "grpc://localhost:7050"
-              }
-            },
-            "organizations": {
-              "Org1": {
-                "mspid": "Org1MSP",
-                "peers": [
-                  "peer0.org1.example.com"
-                ],
-                "certificateAuthorities": [
-                  "ca.org1.example.com"
-                ]
-              }
-            },
-            "channels": {
-              "composerchannel": {
-                "orderers": [
-                  "orderer.example.com"
-                ],
-                "peers": {
-                  "peer0.org1.example.com": {
-                    "endorsingPeer": true,
-                    "chaincodeQuery": true,
-                    "eventSource": true
-                  }
-                }
-              }
-            },
-            "client": {
-              "organization": "Org1",
-                "connection": {
-                  "timeout": {
-                    "peer": {
-                      "endorser": "300",
-                      "eventHub": "300",
-                      "eventReg": "300"
-                    },
-                    "orderer": "300"
-                  }
+            "ca.org1.example.com": {
+              "url": "http://localhost:7054",
+              "certificateAuthorities": {
+              "caName": "ca.org1.example.com"
+            }
+          },
+          "orderers": {
+            "orderer.example.com": {
+              "url": "grpc://localhost:7050"
+            }
+          },
+          "organizations": {
+            "Org1": {
+              "mspid": "Org1MSP",
+              "peers": [
+                "peer0.org1.example.com"
+              ],
+              "certificateAuthorities": [
+                "ca.org1.example.com"
+              ]
+            }
+          },
+          "channels": {
+            "composerchannel": {
+              "orderers": [
+                "orderer.example.com"
+              ],
+              "peers": {
+                "peer0.org1.example.com": {
+                  "endorsingPeer": true,
+                  "chaincodeQuery": true,
+                  "eventSource": true
                 }
               }
             }
+          },
+          "client": {
+            "organization": "Org1",
+            "connection": {
+              "timeout": {
+                "peer": {
+                  "endorser": "300",
+                  "eventHub": "300",
+                  "eventReg": "300"
+                },
+                "orderer": "300"
+              }
+            }
+          }
+        }
     volumeMounts:
     - name: composer-card-store
       mountPath: /home/composer/.composer
