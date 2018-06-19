@@ -6,6 +6,7 @@ elif [ "${PWD##*/}" == "scripts" ]; then
 	:
 else
     echo "Please run the script from 'scripts' or 'scripts/create' folder"
+		exit
 fi
 
 echo "clearing all old pods"
