@@ -69,6 +69,7 @@ echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/chaincode_instantiate.yaml
 kubectl create -f ${KUBECONFIG_FOLDER}/chaincode_instantiate.yaml
 
 while [ "$(kubectl get pods chaincodeinstantiate | grep chaincodeinstantiate | awk '{print $3}')" != "Completed" ]; do
+
     echo "Waiting for chaincodeinstantiate container to be Completed"
     sleep 1;
 done

@@ -20,7 +20,7 @@ echo ""
 echo "=> CREATE_ALL: Creating blockchain"
 create/create_blockchain.sh $@
 
-CORE_PEER_GOSSIP_USELEADERELECTION=truecho ""
+echo ""
 echo "=> CREATE_ALL: Running Create Channel"
 PEER_MSPID="Org1MSP" CHANNEL_NAME="composerchannel" create/create_channel.sh
 

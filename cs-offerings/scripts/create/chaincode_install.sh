@@ -61,6 +61,7 @@ echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/chaincode_install.yaml"
 kubectl create -f ${KUBECONFIG_FOLDER}/chaincode_install.yaml
 
 while [ "$(kubectl get pods chaincodeinstall | grep chaincodeinstall | awk '{print $3}')" != "Completed" ]; do
+
     echo "Waiting for chaincodeinstall container to be Completed"
     sleep 1;
 done
@@ -70,5 +71,6 @@ if [ "$(kubectl get pods chaincodeinstall | grep chaincodeinstall | awk '{print 
 fi
 
 if [ "$(kubectl get pods chaincodeinstall | grep chaincodeinstall | awk '{print $3}')" != "Completed" ]; then
+
 	echo "Install Chaincode Failed"
 fi

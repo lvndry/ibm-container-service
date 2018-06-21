@@ -35,7 +35,7 @@ echo "Creating createchannel pod"
 echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/create_channel.yaml"
 kubectl create -f ${KUBECONFIG_FOLDER}/create_channel.yaml
 
-while [ "$(kubectl get pod -a createchannel | grep createchannel | awk '{print $3}')" != "Completed" ]; do
+while [ "$(kubectl get pod createchannel | grep createchannel | awk '{print $3}')" != "Completed" ]; do
     echo "Waiting for createchannel container to be Completed"
     sleep 1;
 done
