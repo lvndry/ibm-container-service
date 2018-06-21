@@ -34,7 +34,7 @@ echo "Creating composer-card-import pod"
 echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/composer-card-import.yaml"
 kubectl create -f ${KUBECONFIG_FOLDER}/composer-card-import.yaml
 
-while [ "$(kubectl get pod -a composer-card-import | grep composer-card-import | awk '{print $3}')" != "Completed" ]; do
+while [ "$(kubectl get pod composer-card-import | grep composer-card-import | awk '{print $3}')" != "Completed" ]; do
     echo "Waiting for composer-card-import container to be Completed"
     sleep 1;
 done

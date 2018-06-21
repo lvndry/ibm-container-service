@@ -52,14 +52,15 @@ echo "Running: kubectl create -f ${KUBECONFIG_FOLDER}/join_channel.yaml"
 kubectl create -f ${KUBECONFIG_FOLDER}/join_channel.yaml
 
 while [ "$(kubectl get pods joinchannel | grep joinchannel | awk '{print $3}')" != "Completed" ]; do
+
     echo "Waiting for joinchannel container to be Completed"
     sleep 1;
 done
 
-if [ "$(kubectl get pod -a joinchannel | grep joinchannel | awk '{print $3}')" == "Completed" ]; then
+if [ "$(kubectl get pod joinchannel | grep joinchannel | awk '{print $3}')" == "Completed" ]; then
 	echo "Join Channel Completed Successfully"
 fi
 
-if [ "$(kubectl get pod -a joinchannel | grep joinchannel | awk '{print $3}')" != "Completed" ]; then
+if [ "$(kubectl get pod joinchannel | grep joinchannel | awk '{print $3}')" != "Completed" ]; then
 	echo "Join Channel Failed"
 fi
